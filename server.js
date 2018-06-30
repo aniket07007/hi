@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var hbs = require('hbs')
 var fs = require('fs');
+var port = process.env.PORT || 3000;
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 hbs.registerPartials(__dirname+'/views/partials');
@@ -48,6 +49,6 @@ app.get('/badurl', (req, res)=>{
         error: "This page can not be opened"
   });
 });
-app.listen(3000, ()=>{
-  console.log('server is started on port 3000');
+app.listen(port, ()=>{
+  console.log(`server is started on port ${port}`);
 });
